@@ -1,0 +1,21 @@
+<head>
+    <meta charset="utf-8">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{{ metadata }}">
+    <link rel="icon" href="{{ SITEURL }}/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ SITEURL }}/img/favicon.ico" type="image/x-icon" />
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/css/style.css" />
+    {{ if .RSSLink }}
+    <link href="{{ SITEURL }}/post/index.xml" rel="alternate" type="application/rss+xml" title="{{ SITENAME }}" />
+    {{ end }}
+
+</head>
