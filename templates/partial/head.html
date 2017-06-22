@@ -1,11 +1,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title><% block title %><% endblock %></title>
-    <link rel="icon" href="{{ SITEURL }}/img/favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" href=" {{ SITEURL }}/img/favicon.ico" type="image/x-icon"/>
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <link rel="icon" href="{{ SITEURL }}/theme/img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href=" {{ SITEURL }}/theme/img/favicon.ico" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css"/>
 
 
     {% if FEED_ATOM %}
