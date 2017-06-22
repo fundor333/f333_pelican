@@ -5,17 +5,15 @@
     </div>
     <div class="container">
         <div class="row">
-            {% for tag in tag_cloud %}
 
-            <li class="tag-{{ tag.1 }}">
-                <a class="gray-action" href="{{ SITEURL }}/{{ tag.0.url }}">
-                    {{ tag.0 }}
-                    {% if TAG_CLOUD_BADGE %}
-                    <i class="material-icons">{{ tag.2 }}</i>
-                    {% endif %}
-                </a>
-            </li>
-            {% endfor %}
+                {% for tag in tag_cloud %}
+            <a class="tag-{{ tag.1 }} gray-action" href="{{ SITEURL }}/{{ tag.0.url }}">
+            {{ tag.0 }}
+                {% if TAG_CLOUD_BADGE %}
+                    <span class="badge">{{ tag.2 }},</span>
+                {% endif %}
+            </a>
+    {% endfor %}
         </div>
     </div>
 </aside>
