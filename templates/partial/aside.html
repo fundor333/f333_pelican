@@ -1,0 +1,21 @@
+<aside class="col m3 hide-on-small-only amber lighten-5 f333">
+    <br>
+    <div class="row">
+        {% include 'partial/social.html' %}
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for tag in tag_cloud %}
+
+            <li class="tag-{{ tag.1 }}">
+                <a class="gray-action" href="{{ SITEURL }}/{{ tag.0.url }}">
+                    {{ tag.0 }}
+                    {% if TAG_CLOUD_BADGE %}
+                    <i class="material-icons">{{ tag.2 }}</i>
+                    {% endif %}
+                </a>
+            </li>
+            {% endfor %}
+        </div>
+    </div>
+</aside>

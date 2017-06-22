@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+
+{% include 'partial/head.html' %}
+
+
+<body>
+<div class="container">
+    <div class="col s10 offset-s1">
+        <div class="col s12">
+            <br>
+            {% include 'partial/top_head.html' %}
+            <br>
+            <div class="row">
+                {% include 'partial/navbar.html' %}
+            </div>
+            <br>
+            <div class="row">
+                {% block main_body %}
+                {% endblock %}
+                {% include 'partial/aside.html' %}
+
+
+            </div>
+            <br>
+            {% include 'partial/footer.html' %}
+        </div>
+
+    </div>
+</div>
+{% include 'partial/script.html' %}
+</body>
+
+</html>
