@@ -1,0 +1,48 @@
+{% extends 'partial/base.html' %}
+
+{% block main_body %}
+
+<div class="blue-grey lighten-4 col m9 s12 f333">
+    <div class="container">
+        <div class="row">
+            <br>
+            <article>
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">{{ page.title }}</span>
+
+                        <nav class="blue-grey lighten-4">
+                            <div class="nav-wrapper ">
+                                <div class="col s12 breadcrumb">
+                                    <a href="{{ SITEURL }}" class="breadcrumb">
+                                        home
+                                    </a>
+                                    <a href='{{ SITEURL }}{{ page.url }}' class="breadcrumb">
+                                        {{ page.title }}
+                                    </a>
+                                </div>
+                            </div>
+                        </nav>
+
+
+                        <br>
+                        <div class="entry-content">
+                            {{ page.content }}
+                        </div>
+                        <div>
+                            <hr>
+                            <div class="pure-g post-footer">
+                                <p>
+                                    Postato da {{ page.author }}
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
