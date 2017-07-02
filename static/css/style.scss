@@ -9,6 +9,10 @@ body{
   font-family: $font_titles;
 }
 
+.anchor-link{
+visibility:hidden
+}
+
 img{
   @extend .responsive-img;
 }
