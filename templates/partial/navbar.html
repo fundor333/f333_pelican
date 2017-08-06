@@ -4,6 +4,11 @@
             {% for title, url in LINKS %}
             <li><a href="{{url}}" class="gray-action">{{title}}</a></li>
             {% endfor%}
+            <li>
+                <form id="search" action="{{ SITEURL }}/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="text" class="search-query" placeholder="" name="q" id="tipue_search_input">
+                    </form>
+            </li>
         </ul>
     </div>
 </nav>
