@@ -3,7 +3,7 @@
 <script src="{{ SITEURL }}/theme/js/jquery.matchHeight.js"></script>
 <script id="dsq-count-scr" src="https://fundor333.disqus.com/count.js" async></script>
 <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
-<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.js"></script>
 
 <script>
     (function(i, s, o, g, r, a, m) {
@@ -40,5 +40,10 @@
 		 		'newWindow': true,
 				'contentLocation': '{{ SITEURL }}/tipuesearch_content.json'
 				});
+                var divs = $(".contents");
+                for(var i = 0; i < divs.length; i+=4) {
+                    j = i + 1;
+                    divs.slice(i, i+4).wrapAll("<div id='newDivforWraping"+j+"' class='new'></div>");
+                }
 			});
 </script>

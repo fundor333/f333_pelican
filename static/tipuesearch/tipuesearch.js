@@ -350,12 +350,13 @@ http://www.tipue.com/search
                               }
                               if (c == 1)
                               {
-                                   out += '<div id="tipue_search_results_count">' + tipuesearch_string_4;
+
+                                   out += '<div class="amber lighten-5 black-text container center">' + tipuesearch_string_4;
                               }
                               else
                               {
                                    c_c = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                   out += '<div id="tipue_search_results_count">' + c_c + ' ' + tipuesearch_string_5;
+                                   out += '<div class="amber lighten-5 black-text container center">' + c_c + ' ' + tipuesearch_string_5;
                               }
                               if (set.showTime)
                               {
@@ -372,14 +373,81 @@ http://www.tipue.com/search
                               for (var i = 0; i < found.length; i++)
                               {
                                    if (l_o >= start && l_o < set.show + start)
-                                   {                                   
-                                        out += '<div class="tipue_search_content_title"><a href="' + found[i].url + '"' + tipue_search_w + '>' +  found[i].title + '</a></div>';
+                                   {
+                                       out += '<div class="row"><div class="card grey lighten-2"><div class="card-content">';
+                                       out += '<div class="card-title"><a href="' + found[i].url + '"' + tipue_search_w + ' class="title-action" rel="bookmark">' +  found[i].title + '</a></div>';
  
                                         if (set.debug)
                                         {                                             
                                              out += '<div class="tipue_search_content_debug">Score: ' + found[i].score + '</div>';
                                         }
-                                        
+
+
+                                       if (found[i].desc)
+                                       {
+                                           var t = found[i].desc;
+
+                                           if (set.showContext)
+                                           {
+                                               d_w = d.split(' ');
+                                               var s_1 = found[i].desc.toLowerCase().indexOf(d_w[0]);
+                                               if (s_1 > set.contextStart)
+                                               {
+                                                   var t_1 = t.substr(s_1 - set.contextBuffer);
+                                                   var s_2 = t_1.indexOf(' ');
+                                                   t_1 = t.substr(s_1 - set.contextBuffer + s_2);
+                                                   t_1 = $.trim(t_1);
+
+                                                   if (t_1.length > set.contextLength)
+                                                   {
+                                                       t = '... ' + t_1;
+                                                   }
+                                               }
+                                           }
+
+                                           if (standard)
+                                           {
+                                               d_w = d.split(' ');
+                                               for (var f = 0; f < d_w.length; f++)
+                                               {
+                                                   if (set.highlightTerms)
+                                                   {
+                                                       var patr = new RegExp('(' + d_w[f] + ')', 'gi');
+                                                       t = t.replace(patr, "<h0011>$1<h0012>");
+                                                   }
+                                               }
+                                           }
+                                           else if (set.highlightTerms)
+                                           {
+                                               var patr = new RegExp('(' + d + ')', 'gi');
+                                               t = t.replace(patr, "<span class=\"tipue_search_content_bold\">$1</span>");
+                                           }
+
+                                           var t_d = '';
+                                           var t_w = t.split(' ');
+                                           if (t_w.length < set.descriptiveWords)
+                                           {
+                                               t_d = t;
+                                           }
+                                           else
+                                           {
+                                               for (var f = 0; f < set.descriptiveWords; f++)
+                                               {
+                                                   t_d += t_w[f] + ' ';
+                                               }
+                                           }
+                                           t_d = $.trim(t_d);
+                                           if (t_d.charAt(t_d.length - 1) != '.')
+                                           {
+                                               t_d += ' ...';
+                                           }
+
+                                           t_d = t_d.replace(/h0011/g, 'span class=\"tipue_search_content_bold\"');
+                                           t_d = t_d.replace(/h0012/g, '/span');
+
+                                           out += '<div class="entry-content">' + t_d + '</div>';
+                                       }
+
                                         if (set.showURL)
                                         {
                                              var s_u = found[i].url.toLowerCase();
@@ -387,75 +455,14 @@ http://www.tipue.com/search
                                              {
                                                   s_u = s_u.slice(7);
                                              }                                             
-                                             out += '<div class="tipue_search_content_url"><a href="' + found[i].url + '"' + tipue_search_w + '>' + s_u + '</a></div>';
+                                             out += '<div class="card-action gray-action"><a href="' + found[i].url + '"' + tipue_search_w + '>READ MORE</a></div>';
                                         }
-                                        
-                                        if (found[i].desc)
-                                        {                                        
-                                             var t = found[i].desc;
 
-                                             if (set.showContext)
-                                             {
-                                                  d_w = d.split(' ');
-                                                  var s_1 = found[i].desc.toLowerCase().indexOf(d_w[0]);
-                                                  if (s_1 > set.contextStart)
-                                                  {
-                                                       var t_1 = t.substr(s_1 - set.contextBuffer);
-                                                       var s_2 = t_1.indexOf(' ');
-                                                       t_1 = t.substr(s_1 - set.contextBuffer + s_2);
-                                                       t_1 = $.trim(t_1);
-                                                       
-                                                       if (t_1.length > set.contextLength)
-                                                       {                                                      
-                                                            t = '... ' + t_1;
-                                                       }
-                                                  }   
-                                             }
-                                             
-                                             if (standard)
-                                             {
-                                                  d_w = d.split(' ');
-                                                  for (var f = 0; f < d_w.length; f++)
-                                                  {
-                                                       if (set.highlightTerms)
-                                                       {
-                                                            var patr = new RegExp('(' + d_w[f] + ')', 'gi');
-                                                            t = t.replace(patr, "<h0011>$1<h0012>");
-                                                       }
-                                                  }
-                                             }
-                                             else if (set.highlightTerms)
-                                             {
-                                                  var patr = new RegExp('(' + d + ')', 'gi');
-                                                  t = t.replace(patr, "<span class=\"tipue_search_content_bold\">$1</span>");
-                                             }
-                                                                                  
-                                             var t_d = '';
-                                             var t_w = t.split(' ');
-                                             if (t_w.length < set.descriptiveWords)
-                                             {
-                                                  t_d = t;
-                                             }
-                                             else
-                                             {
-                                                  for (var f = 0; f < set.descriptiveWords; f++)
-                                                  {
-                                                       t_d += t_w[f] + ' '; 	
-                                                  }
-                                             }
-                                             t_d = $.trim(t_d);
-                                             if (t_d.charAt(t_d.length - 1) != '.')
-                                             {
-                                                  t_d += ' ...';
-                                             }
-                                             
-                                             t_d = t_d.replace(/h0011/g, 'span class=\"tipue_search_content_bold\"');
-                                             t_d = t_d.replace(/h0012/g, '/span');
-                                             
-                                             out += '<div class="tipue_search_content_text">' + t_d + '</div>';
-                                        }
+
+                                       out += '</div></div></div>';
+
                                    }
-                                   l_o++;     
+                                   l_o++;
                               }
                                    
                               if (set.showRelated && standard)
@@ -471,7 +478,7 @@ http://www.tipue.com/search
                                              }
                                              if (!f)
                                              {
-                                                  out += '<div class="tipue_search_related_title">' + tipuesearch_string_15 + ' <span class="tipue_search_related_bold">' + d_o + '</span></div><div class="tipue_search_related_cols">';
+                                                  out += '<div class="tipue_search_related_title">' + tipuesearch_string_15 +'</div>';
                                              }
                                              
                                              out += '<div class="tipue_search_related_text"><a class="tipue_search_related" id="' + tipuesearch_related.searches[i].related + '">';
@@ -485,7 +492,8 @@ http://www.tipue.com/search
                                                   out += ' <span class="tipue_search_related_after">' + tipuesearch_related.searches[i].after + '</span>';    
                                              }
                                              out += '</a></div>';                                            
-                                             f++;         
+                                             f++;
+
                                         }
                                    }
                                    if (f)
@@ -498,8 +506,8 @@ http://www.tipue.com/search
                               {
                                    var pages = Math.ceil(c / set.show);
                                    var page = (start / set.show);
-                                   out += '<nav><div id="tipue_search_foot"><ul id="tipue_search_foot_boxes">';
-                                   
+                                   out += '<nav class="amber lighten-5 black-text center"><div class="container"><ul id="tipue_search_foot_boxes">';
+
                                    if (start > 0)
                                    {
                                        out += '<li role="navigation"><a class="tipue_search_foot_box" accesskey="b" id="' + (start - set.show) + '_' + replace + '">' + tipuesearch_string_6 + '</a></li>'; 
@@ -548,9 +556,9 @@ http://www.tipue.com/search
                                    {
                                        out += '<li role="navigation"><a class="tipue_search_foot_box" accesskey="m" id="' + (start + set.show) + '_' + replace + '">' + tipuesearch_string_7 + '</a></li>'; 
                                    }                    
-                                   
+
                                    out += '</ul></div></nav>';
-                              }                        
+                              }
                          }
                          else
                          {
