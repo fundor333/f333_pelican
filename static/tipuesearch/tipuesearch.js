@@ -455,7 +455,7 @@ http://www.tipue.com/search
                                              {
                                                   s_u = s_u.slice(7);
                                              }                                             
-                                             out += '<div class="card-action gray-action"><a href="' + found[i].url + '"' + tipue_search_w + '>READ MORE</a></div>';
+                                             out += '<div class="card-action gray-action"><a class="orange-action" href="' + found[i].url + '"' + tipue_search_w + '>READ MORE</a></div>';
                                         }
 
 

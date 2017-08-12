@@ -1,14 +1,34 @@
 <nav class="amber lighten-5">
     <div class="nav-wrapper">
-        <ul id="nav-mobile" class="left">
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i
+                class="material-icons gray-text gray-action">menu</i></a>
+        <ul class="hide-on-med-and-down">
             {% for title, url in LINKS %}
             <li><a href="{{url}}" class="gray-action">{{title}}</a></li>
             {% endfor%}
-            <li>
-                <form id="search" action="{{ SITEURL }}/search.html" onsubmit="return validateForm(this.elements['q'].value);">
-                        <input type="text" class="search-query" placeholder="" name="q" id="tipue_search_input">
-                    </form>
-            </li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            {% for title, url in LINKS %}
+            <li><a href="{{url}}" class="gray-action">{{title}}</a></li>
+            {% endfor%}
         </ul>
     </div>
 </nav>
+
+<br>
+    <nav class="amber lighten-5 show-on-small">
+        <div class="nav-wrapper">
+            <form>
+                <div class="input-field">
+                    <form id="search" action="{{ SITEURL }}/search.html"
+                          onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="text" class="search-query gray-action gray-text" placeholder="" name="q"
+                               id="tipue_search_input">
+
+                        <label class="label-icon" for="search"><i
+                                class="material-icons gray-text gray-action">search</i></label>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </nav>
