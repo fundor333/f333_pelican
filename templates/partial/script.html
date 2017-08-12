@@ -2,8 +2,7 @@
 <script src="{{ SITEURL }}/theme/js/materialize.min.js"></script>
 <script id="dsq-count-scr" src="https://fundor333.disqus.com/count.js" async></script>
 <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
-<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.js"></script>
-<script src="{{ SITEURL }}/theme/js/jquery.matchHeight.min.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
 
 <script>
     (function (i, s, o, g, r, a, m) {
@@ -25,6 +24,10 @@
         $(".dropdown-button").dropdown();
     });
 
+    $(function () {
+        $('.f333').matchHeight();
+    });
+
 
     $(document).ready(function () {
         $('#tipue_search_input').tipuesearch({
@@ -38,8 +41,7 @@
             j = i + 1;
             divs.slice(i, i + 4).wrapAll("<div id='newDivforWraping" + j + "' class='new'></div>");
         }
-        $('.f333').matchHeight();
     });
-
-    $(".button-collapse").sideNav();
 </script>
+
+<script src="{{ SITEURL }}/theme/js/jquery.matchHeight.js"></script>
