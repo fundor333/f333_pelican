@@ -1,6 +1,22 @@
 {% extends 'partial/base.html' %}
 
 {% block main_body %}
+<br>
+<nav class="amber lighten-5 show-on-small">
+    <div class="nav-wrapper">
+        <form>
+            <div class="input-field">
+                <form id="search" action="{{ SITEURL }}/search.html"
+                      onsubmit="return validateForm(this.elements['q'].value);">
+
+                    <input type="text" class="search-query gray-action gray-text" placeholder="🔍 search here name="q"
+                           id="tipue_search_input">
+                </form>
+            </div>
+        </form>
+    </div>
+</nav>
+<br>
 
 <div class="grey lighten-5 col m9 s12 f333">
     <div class="container">
