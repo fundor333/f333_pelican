@@ -54,17 +54,28 @@
                 </div>
             </article>
 
-            <div class="fixed-action-btn horizontal click-to-toggle">
+            <div class="fixed-action-btn horizontal click-to-toggle social">
                 <a class="btn-floating btn-large red">
                     <i class="material-icons">share</i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating red"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating yellow darken-1"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating green"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating blue"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating blue"><i class="fa fa-google-plus-official" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating pink"><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
+                    <li><a href="http://www.facebook.com/share.php?u={{ SITEURL }}{{ article.url }}" class="button btn-floating red"><i class="fa fa-facebook"
+                                                                                            aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/share?url={{ SITEURL }}{{ article.url }}&amp;text=Read this amazing article &amp;hashtags=f333" target="_blank" class="button btn-floating blue" data-show-count="false"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li><a href=https://www.linkedin.com/shareArticle?mini=true&url={{ SITEURL }}{{ article.url }}" class="sharer button btn-floating blue"><i class="fa fa-linkedin"
+                                                                                             aria-hidden="true"></i></a>
+                    </li>
+                    <li><a href="https://plus.google.com/share?url={{ SITEURL }}{{ article.url }}"  class="sharer button btn-floating pink"><i
+                            class="fa fa-google-plus-official" aria-hidden="true"></i></a></li>
+
+                    <li><a href="#"  class="sharer button btn-floating pink"><i class="fa fa-envelope"
+                                                                                             aria-hidden="true"></i></a>
+                    </li>
+
+
                 </ul>
             </div>
 
@@ -74,21 +85,21 @@
                 <div id="disqus_thread"></div>
                 <script>
 
-              /**
-              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-              /*
-              var disqus_config = function () {
-              this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-              this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-              };
-              */
-              (function() { // DON'T EDIT BELOW THIS LINE
-              var d = document, s = d.createElement('script');
-              s.src = 'https://fundor333.disqus.com/embed.js';
-              s.setAttribute('data-timestamp', +new Date());
-              (d.head || d.body).appendChild(s);
-              })();
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function () { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://fundor333.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
 
                 </script>
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
