@@ -9000,6 +9000,14 @@ article a {
   background-color: #DC4E41 !important; }
 
 .mail {
-  background-color: g !important; }
+  background-color: green !important; }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+main {
+  flex: 1 0 auto; }
 
 /*# sourceMappingURL=style.css.map */

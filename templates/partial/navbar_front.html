@@ -5,8 +5,8 @@
             <div class="card-content">
                 <span class="card-title">Menu</span>
                 <ul id="nav-mobile" class="left">
-                    {% for title, url in LINKS %}
-                    <li><a href="{{ url }}" class="gray-action">{{ title }}</a></li>
+                    {% for fa,title, url in LINKS %}
+                    <li><a href="{{url}}" class="gray-action"><i class="fa fa-{{fa}}" aria-hidden="true"></i> {{title}}</a></li>
                     {% endfor%}
                 </ul>
             </div>

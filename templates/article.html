@@ -1,6 +1,5 @@
-{% extends 'partial/base.html' %}
-
-{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
+{% extends 'partial/_base.html' %}
+{% block title %}{{ article.title }} / {{ SITENAME }}{% endblock %}
 
 {% block main_body %}
 
@@ -11,7 +10,7 @@
             <article>
                 <div class="card">
                     <div class="card-content">
-                        <span class="card-title">{{ article.title }}</span>
+                        <h1 class="card-title">{{ article.title }}</h1>
 
                         <nav class="blue-grey lighten-4">
                             <div class="nav-wrapper ">
@@ -45,7 +44,7 @@
                             <div class="card-action">
                                 {% for tag in article.tags %}
                                 <a class="gray-action" href="{{ tag.url }}">
-                                    <i class="material-icons">label</i> {{ tag.name }}
+                                    <i class="fa fa-tag" aria-hidden="true"></i> {{ tag.name }}
                                 </a>
                                 {% endfor %}
                             </div>
@@ -59,19 +58,19 @@
                     <i class="material-icons">share</i>
                 </a>
                 <ul>
-                    <li><a href="http://www.facebook.com/share.php?u={{ SITEURL }}{{ article.url }}" class="button btn-floating facebook"><i class="fa fa-facebook"
+                    <li><a href="http://www.facebook.com/share.php?u={{ SITEURL }}{{ article.url }}" class="waves-effect button btn-floating facebook"><i class="fa fa-facebook"
                                                                                             aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/share?url={{ SITEURL }}{{ article.url }}&amp;text=Read this amazing article &amp;hashtags=f333" target="_blank" class="button btn-floating twitter" data-show-count="false"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/share?url={{ SITEURL }}{{ article.url }}&amp;text=Read this amazing article &amp;hashtags=f333" target="_blank" class=" waves-effect button btn-floating twitter" data-show-count="false"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     </li>
                     <li><a href=https://www.linkedin.com/shareArticle?mini=true&url={{ SITEURL }}{{ article.url }}" class="sharer button btn-floating linkedin"><i class="fa fa-linkedin"
                                                                                              aria-hidden="true"></i></a>
                     </li>
-                    <li><a href="https://plus.google.com/share?url={{ SITEURL }}{{ article.url }}"  class="sharer button btn-floating gplus"><i
+                    <li><a href="https://plus.google.com/share?url={{ SITEURL }}{{ article.url }}"  class="waves-effect button btn-floating gplus"><i
                             class="fa fa-google-plus" aria-hidden="true"></i></a></li>
 
-                    <li><a href="#"  class="sharer button btn-floating mail"><i class="fa fa-envelope"
+                    <li><a href="#"  class="waves-effect button btn-floating mail"><i class="fa fa-envelope"
                                                                                              aria-hidden="true"></i></a>
                     </li>
 

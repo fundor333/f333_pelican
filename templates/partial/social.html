@@ -8,8 +8,8 @@
                         <p>Ecco dove seguirmi</p>
                     </div>
                     <div class="card-action">
-                        {% for title, url in SOCIAL %}
-                        <a class="gray-action" href="{{ url }}">{{ title }}</a>
+                        {% for fa, url in SOCIAL %}
+                        <a class="gray-action" href="{{ url }}"><i class="fa fa-{{fa}} fa-4x" aria-hidden="true"></i></a>
                         {% endfor %}
                     </div>
                 </div>
