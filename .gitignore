@@ -2,3 +2,5 @@
 static/.sass-cache/
 
 output/
+
+static/css/\.sass-cache
