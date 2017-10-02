@@ -8939,7 +8939,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   clip: auto; }
 
 body {
-  font-family: "Special Elite"; }
+  font-family: "Roboto"; }
 
 .anchor-link {
   visibility: hidden; }
@@ -9009,5 +9009,12 @@ body {
 
 main {
   flex: 1 0 auto; }
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
 
 /*# sourceMappingURL=style.css.map */

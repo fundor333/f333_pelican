@@ -3,8 +3,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
 
-$font_titles: 'Special Elite';
-$font_text: 'Special Elite';
+$font_titles: 'Roboto';
+$font_text: 'Roboto';
 
 body{
   @extend .blue-grey, .darken-2;
@@ -105,4 +105,12 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
 }
