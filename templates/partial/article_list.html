@@ -11,40 +11,35 @@
                         {% block category_header %}
                         {% endblock %}
                     </div>
-                    {% for article in articles_page.object_list %}
-                    <div class="row">
-                        <div class="card grey lighten-2">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <a href="{{ SITEURL }}/{{ article.url }}" class="title-action" rel="bookmark"
-                                       title="{{ article.title | striptags }}">{{ article.title | striptags }}</a>
-                                    <p class="small">{{ article.locale_date }}</p>
-                                </div>
+                    <ul class="collapsible popout" data-collapsible="accordion">
 
-                                <div class="entry-content">
-                                    <p>{{ article.summary }}</p>
-                                </div>
-                                <div class="card-action gray-action">
-                                    <a href="{{ SITEURL }}/{{ article.url }}">Read more</a>
-                                </div>
+                        {% for article in articles_page.object_list %}
+                        <li>
+                            <div class="collapsible-header">
+                                <i class="fa fa-link" aria-hidden="true"></i>
+                                {{ article.title | striptags }}
                             </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+                            <div class="collapsible-body">
+                                <span> <p>{{ article.summary }}</p>
+                                <a href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+                            </span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
 
 
                 </div>
                 <div class="row">
+                    <ul class="pagination">
                     {% if articles_page.has_previous() %}
-                    <a class="btn amber lighten-5 left black-text"
-                       href="{{ SITEURL }}/{{  articles_previous_page.url }}">
-                        < Preview Page </a>
+                        <li class="waves-effect left"><a href="{{ SITEURL }}/{{  articles_previous_page.url }}"><i class="material-icons">chevron_left</i></a></li>
                     {% endif %}
 
                     {% if articles_page.has_next() %}
-                    <a class="btn amber lighten-5 right black-text" href="{{ SITEURL }}/{{ articles_next_page.url }}">
-                        Next Page ></a>
+                        <li class="waves-effect right"><a href="{{ SITEURL }}/{{ articles_next_page.url }}"><i class="material-icons">chevron_right</i></a></li>
                     {% endif %}
+                    </ul>
                 </div>
             </div>
             <br>

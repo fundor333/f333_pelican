@@ -24,49 +24,49 @@
 </head>
 
 <body>
+<br>
 <div class='container'>
-    <br>
-    <div class='row'>
-        <div class='col s12 m3'>
-            <div class='f333 card blue-grey lighten-4'>
-                <div class='card-image'>
-                    <a href='{{ SITEURL }}'>
-                        <img src='{{ SITEURL }}theme/img/logo.png' class='img-responsive center-block'>
-                    </a>
-                </div>
-                <div class='card-stacked'>
-                    <div class='card-content'>
-                        <a href='{{ SITEURL }}'>
-                            <span class='card-title black-text'>{{ SITENAME }}</span>
-                            <span class='card-title black-text'>{{ SITESUBTITLE }}</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class='col s12 m5'>
-            <div class='f333 card blue-grey lighten-5'>
-                <div class='card-content'><p>{{ HOME_TEXT }}</p>
-                </div>
-                <div class='card-action'>
 
-                    <div class='card-action'>
-                        {% for fa, url in SOCIAL %}
-                        <a class="gray-action" href="{{ url }}"><i class="fa fa-{{fa}} fa-3x" aria-hidden="true"></i></a>
-                        {% endfor %}
-                    </div>
+    <div class="row center-align">
+        <a href='{{ SITEURL }}'>
+            <h2 class='black-text center'>{{ SITENAME }}</h2>
+            <h4 class='black-text center'>{{ SITESUBTITLE }}</h4>
+        </a>
+    </div>
 
-                </div>
-            </div>
+    <div class="row valign-wrapper">
+        <div class='col s12 offset-m1 m5'>
+            <a href='{{ SITEURL }}'>
+                <img src='{{ SITEURL }}theme/img/pilogo.jpg' class='circle responsive-img'>
+            </a>
         </div>
         <div class='col s12 m4'>
-            <div class=' f333 blue-grey lighten-4 card'>
-            {% include 'partial/navbar_front.html' %}
+            <div class="row">
+            <p class="center-align">{{ HOME_TEXT }}</p>
+            </div>
+            <div class="row">
+            {% for fa,title, url in LINKS %}
+            <a href="{{url}}" class="black-action col s4"><i class="fa fa-{{fa}}" aria-hidden="true"></i> {{title}}
+            </a>
+            {% endfor%}
+
+        </div>
+        <br>
+        <div class="row">
+            {% for fa, url in SOCIAL %}
+            <a class="black-action col s3" href="{{ url }}"><i class="fa fa-{{fa}} fa-3x" aria-hidden="true"></i></a>
+            {% endfor %}
+        </div>
+        </div>
+
+    </div>
+    <br>
+    <div class='row'>
+        <div class='col s12 offset-m1 m10'>
+            <div class="container">
+
             </div>
         </div>
-    </div>
-    <div class='col m-8 s-10'>
-        {% include 'partial/footer.html' %}
     </div>
 </div>
 {% include 'partial/script.html' %}
