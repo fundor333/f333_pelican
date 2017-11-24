@@ -1,104 +1,103 @@
 @import "../sass/materialize";
 @import "../scss/font-awesome";
 @import "pygment";
-
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
 
 $font_titles: 'Roboto';
 $font_text: 'Roboto';
 
-body{
+body {
   @extend .blue-grey, .darken-2;
   font-family: $font_titles;
 }
 
-.anchor-link{
-visibility:hidden
+.anchor-link {
+  visibility: hidden
 }
 
-img{
+img {
   @extend .responsive-img;
 }
 
-.gray-action{
-    color: gray !important;
+.gray-action {
+  color: gray !important;
 }
 
-.black-action{
+.black-action {
   color: black !important;
 }
 
-.orange-action{
-    color:orange !important;
+.orange-action {
+  color: orange !important;
 }
 
-.title-action{
+.title-action {
   color: black !important;
 }
 
-.breadcrumb{
+.breadcrumb {
   color: white !important;
 }
 
-article{
-  a{
+article {
+  a {
     color: blue !important;
-  };
+  }
+;
 }
 
-.same_height{
+.same_height {
   display: table; /* Make the container element behave like a table */
   width: 100%; /* Set full-width to expand the whole page */
-  .f333{
+  .f333 {
     display: table-cell; /* Make elements inside the container behave like table cells */
   }
 }
 
-.entry-content{
-  li{
+.entry-content {
+  li {
     list-style: circle !important;
     list-style-position: inside;
   }
 }
 
 .tagcloud {
-    padding: 0;
+  padding: 0;
 }
 
-
 .tag-1 {
-    font-size: 150%;
+  font-size: 150%;
 }
 
 .tag-2 {
-    font-size: 120%;
+  font-size: 120%;
 }
 
 .tag3 {
-    font-size: 90%;
+  font-size: 90%;
 }
 
 .tag-4 {
-    font-size: 60%;
+  font-size: 60%;
 }
 
-.facebook{
+.facebook {
   background-color: #3B5998 !important;
 }
 
-.twitter{
-  background-color:#1DA1F2 !important;
+.twitter {
+  background-color: #1DA1F2 !important;
 }
 
-.linkedin{
-  background-color:#0077B5 !important;
+.linkedin {
+  background-color: #0077B5 !important;
 }
 
-.gplus{
-  background-color:#DC4E41 !important;
+.gplus {
+  background-color: #DC4E41 !important;
 }
 
-.mail{
+.mail {
   background-color: green !important;
 }
 

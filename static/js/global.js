@@ -1,6 +1,6 @@
 // Required for Meteor package, the use of window prevents export by Meteor
-(function(window){
-  if(window.Package){
+(function (window) {
+  if (window.Package) {
     Materialize = {};
   } else {
     window.Materialize = {};
@@ -18,7 +18,7 @@
  * Copyright (c) 2013 ngryman
  * Licensed under the MIT license.
  */
-(function(window) {
+(function (window) {
   var lastTime = 0,
     vendors = ['webkit', 'moz'],
     requestAnimationFrame = window.requestAnimationFrame,
@@ -34,11 +34,11 @@
   // polyfill with setTimeout fallback
   // heavily inspired from @darius gist mod: https://gist.github.com/paulirish/1579671#comment-837945
   if (!requestAnimationFrame || !cancelAnimationFrame) {
-    requestAnimationFrame = function(callback) {
+    requestAnimationFrame = function (callback) {
       var now = +Date.now(),
-        nextTime = Math.max(lastTime + 16, now);
-      return setTimeout(function() {
-        callback(lastTime = nextTime);
+	nextTime = Math.max(lastTime + 16, now);
+      return setTimeout(function () {
+	callback(lastTime = nextTime);
       }, nextTime - now);
     };
 
@@ -56,24 +56,25 @@
  * @param {jQuery} obj  jQuery object to be parsed
  * @returns {string}
  */
-Materialize.objectSelectorString = function(obj) {
+Materialize.objectSelectorString = function (obj) {
   var tagStr = obj.prop('tagName') || '';
   var idStr = obj.attr('id') || '';
   var classStr = obj.attr('class') || '';
-  return (tagStr + idStr + classStr).replace(/\s/g,'');
+  return (tagStr + idStr + classStr).replace(/\s/g, '');
 };
 
 
 // Unique Random ID
-Materialize.guid = (function() {
+Materialize.guid = (function () {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
       .substring(1);
   }
-  return function() {
+
+  return function () {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-           s4() + '-' + s4() + s4() + s4();
+      s4() + '-' + s4() + s4() + s4();
   };
 })();
 
@@ -82,21 +83,21 @@ Materialize.guid = (function() {
  * @param {string} hash  String returned from this.hash
  * @returns {string}
  */
-Materialize.escapeHash = function(hash) {
-  return hash.replace( /(:|\.|\[|\]|,|=)/g, "\\$1" );
+Materialize.escapeHash = function (hash) {
+  return hash.replace(/(:|\.|\[|\]|,|=)/g, "\\$1");
 };
 
-Materialize.elementOrParentIsFixed = function(element) {
-    var $element = $(element);
-    var $checkElements = $element.add($element.parents());
-    var isFixed = false;
-    $checkElements.each(function(){
-        if ($(this).css("position") === "fixed") {
-            isFixed = true;
-            return false;
-        }
-    });
-    return isFixed;
+Materialize.elementOrParentIsFixed = function (element) {
+  var $element = $(element);
+  var $checkElements = $element.add($element.parents());
+  var isFixed = false;
+  $checkElements.each(function () {
+    if ($(this).css("position") === "fixed") {
+      isFixed = true;
+      return false;
+    }
+  });
+  return isFixed;
 };
 
 
@@ -123,7 +124,7 @@ var getTime = (Date.now || function () {
  * @param {Object=} options
  * @returns {Function}
  */
-Materialize.throttle = function(func, wait, options) {
+Materialize.throttle = function (func, wait, options) {
   var context, args, result;
   var timeout = null;
   var previous = 0;

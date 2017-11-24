@@ -1,5 +1,4 @@
 
-
 .card-panel {
   transition: box-shadow .25s;
   padding: $card-padding;
@@ -16,7 +15,6 @@
   transition: box-shadow .25s;
   border-radius: 2px;
   @extend .z-depth-1;
-
 
   .card-title {
     font-size: 24px;
@@ -65,13 +63,13 @@
   &.horizontal {
     &.small, &.medium, &.large {
       .card-image {
-        height: 100%;
-        max-height: none;
-        overflow: visible;
+	height: 100%;
+	max-height: none;
+	overflow: visible;
 
-        img {
-          height: 100%;
-        }
+	img {
+	  height: 100%;
+	}
       }
     }
 
@@ -80,9 +78,9 @@
     .card-image {
       max-width: 50%;
       img {
-        border-radius: 2px 0 0 2px;
-        max-width: 100%;
-        width: auto;
+	border-radius: 2px 0 0 2px;
+	max-width: 100%;
+	width: auto;
       }
     }
 
@@ -93,7 +91,7 @@
       position: relative;
 
       .card-content {
-        flex-grow: 1;
+	flex-grow: 1;
       }
     }
   }
@@ -109,9 +107,6 @@
       padding-bottom: 64px;
     }
   }
-
-
-
 
   .card-image {
     position: relative;
@@ -152,7 +147,7 @@
       margin-bottom: 8px;
 
       i {
-        line-height: 32px;
+	line-height: 32px;
       }
     }
   }
@@ -163,7 +158,7 @@
     }
     position: relative;
     background-color: inherit;
-    border-top: 1px solid rgba(160,160,160,.2);
+    border-top: 1px solid rgba(160, 160, 160, .2);
     padding: 16px $card-padding;
 
     a:not(.btn):not(.btn-large):not(.btn-floating) {
@@ -172,7 +167,9 @@
       transition: color .3s ease;
       text-transform: uppercase;
 
-      &:hover { color: $card-link-color-light; }
+      &:hover {
+	color: $card-link-color-light;
+      }
     }
   }
 

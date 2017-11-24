@@ -20,7 +20,9 @@ nav {
   height: $navbar-height-mobile;
   line-height: $navbar-line-height-mobile;
 
-  a { color: $navbar-font-color; }
+  a {
+    color: $navbar-font-color;
+  }
 
   i,
   [class^="mdi-"], [class*="mdi-"],
@@ -37,9 +39,10 @@ nav {
   }
 
   @media #{$large-and-up} {
-    a.button-collapse { display: none; }
+    a.button-collapse {
+      display: none;
+    }
   }
-
 
   // Collapse button
   .button-collapse {
@@ -54,7 +57,6 @@ nav {
       line-height: $navbar-line-height-mobile;
     }
   }
-
 
   // Logo
   .brand-logo {
@@ -75,14 +77,16 @@ nav {
       transform: translateX(-50%);
 
       &.left, &.right {
-        padding: 0;
-        transform: none;
+	padding: 0;
+	transform: none;
       }
 
-      &.left { left: 0.5rem; }
+      &.left {
+	left: 0.5rem;
+      }
       &.right {
-        right: 0.5rem;
-        left: auto;
+	right: 0.5rem;
+	left: auto;
       }
     }
 
@@ -99,14 +103,12 @@ nav {
     }
   }
 
-
   // Title
   .nav-title {
     display: inline-block;
     font-size: 32px;
     padding: 28px 0;
   }
-
 
   // Navbar Links
   ul {
@@ -118,7 +120,7 @@ nav {
       padding: 0;
 
       &.active {
-        background-color: rgba(0,0,0,.1);
+	background-color: rgba(0, 0, 0, .1);
       }
     }
     a {
@@ -130,18 +132,18 @@ nav {
       cursor: pointer;
 
       &.btn, &.btn-large, &.btn-flat, &.btn-floating {
-        margin-top: -2px;
-        margin-left: 15px;
-        margin-right: 15px;
+	margin-top: -2px;
+	margin-left: 15px;
+	margin-right: 15px;
 
-        & > .material-icons {
-          height: inherit;
-          line-height: inherit;
-        }
+	& > .material-icons {
+	  height: inherit;
+	  line-height: inherit;
+	}
       }
 
       &:hover {
-        background-color: rgba(0,0,0,.1);
+	background-color: rgba(0, 0, 0, .1);
       }
     }
 
@@ -167,8 +169,8 @@ nav {
 
       &:focus, &[type=text]:valid, &[type=password]:valid,
       &[type=email]:valid, &[type=url]:valid, &[type=date]:valid {
-        border: none;
-        box-shadow: none;
+	border: none;
+	box-shadow: none;
       }
     }
 
@@ -177,10 +179,12 @@ nav {
       left: 0;
 
       i {
-        color: rgba(255,255,255,.7);
-        transition: color .3s;
+	color: rgba(255, 255, 255, .7);
+	transition: color .3s;
       }
-      &.active i { color: $navbar-font-color; }
+      &.active i {
+	color: $navbar-font-color;
+      }
     }
   }
 }
@@ -195,6 +199,7 @@ nav {
     position: fixed;
   }
 }
+
 @media #{$medium-and-up} {
   nav.nav-extended .nav-wrapper {
     min-height: $navbar-height;
