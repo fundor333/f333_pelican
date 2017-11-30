@@ -2,119 +2,174 @@
 @import "../scss/font-awesome";
 @import "pygment";
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
-
+@import "_colors";
 $font_titles: 'Roboto';
 $font_text: 'Roboto';
-
 body {
-  @extend .blue-grey, .darken-2;
-  font-family: $font_titles;
+    background-color: $f333_color_background_primary;
+    color: $f333_color_font_primary;
+    font-family: $font_titles;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
+#title {
+    h1 {
+        font-size: 500% !important;
+    }
+    h4 {
+        font-size: 300% !important;
+    }
+    h1,
+    h4 {
+        align-self: center;
+        color: $f333_color_font_primary;
+    }
+}
+
+.page-aside {}
+.page-article {}
+
+.page-navbar ,.page-footer {
+	background-color: $f333_gray;
+	color: $f333_orange;
+	border-radius: 10px;
+}
+
+.page-list{
+	background-color: $f333_color_background_primary;
+	color: $f333_color_font_primary;
+}
+
+.page-result{}
+
+.page-social {
+    a {
+        color: $f333_orange;
+    }
+}
+
+.social-icon{
+	margin-bottom: 10px;
+}
+
+.page-breadcrumb {
+    background-color: $f333_color_background_secondary;
+    color: $f333_color_font_secondary;
+}
+
+.page-search {
+	border-radius: 10px;
+	background-color: $f333_orange;
+	color: $f333_black;	
+}
+
+.page-article {
+    @for $i from 1 through 6 {
+        h#{$i} {
+            font-size: #{120% -(30*$i)};
+        }
+    }
+}
+
+.page-title {}
+
 .anchor-link {
-  visibility: hidden
+    visibility: hidden
 }
 
 img {
-  @extend .responsive-img;
+    @extend .responsive-img;
 }
 
-.gray-action {
-  color: gray !important;
-}
-
-.black-action {
-  color: black !important;
-}
-
-.orange-action {
-  color: orange !important;
+@each $color_name,
+$color in $colors {
+    @each $color_type,
+    $color_value in $color {
+        .#{$color_name}-action {
+            color: $color_value !important;
+        }
+    }
 }
 
 .title-action {
-  color: black !important;
-}
-
-.breadcrumb {
-  color: white !important;
+    color: $f333_black !important;
 }
 
 article {
-  a {
-    color: blue !important;
-  }
-;
+    a {
+        color: $f333_orange !important;
+    }
 }
 
 .same_height {
-  display: table; /* Make the container element behave like a table */
-  width: 100%; /* Set full-width to expand the whole page */
-  .f333 {
-    display: table-cell; /* Make elements inside the container behave like table cells */
-  }
+    display: table;
+    width: 100%;
+    .f333 {
+        display: table-cell;
+    }
+}
+
+a {
+    color: $f333_orange;
 }
 
 .entry-content {
-  li {
-    list-style: circle !important;
-    list-style-position: inside;
-  }
+    li {
+        list-style: circle !important;
+        list-style-position: inside;
+    }
+}
+
+.breadcrumb {
+    color: $f333_orange;
+}
+
+.breadcrumb:last-child {
+    color: $f333_orange
 }
 
 .tagcloud {
-  padding: 0;
+    padding: 0;
 }
 
-.tag-1 {
-  font-size: 150%;
+@for $i from 1 through 4 {
+    .tag-#{$i} {
+        font-size: #{(180% -($i *30))};
+    }
 }
 
-.tag-2 {
-  font-size: 120%;
-}
-
-.tag3 {
-  font-size: 90%;
-}
-
-.tag-4 {
-  font-size: 60%;
+@for $i from 1 through 6 {
+    h#{$i} {
+        font-size: #{180% -(30*$i)};
+    }
 }
 
 .facebook {
-  background-color: #3B5998 !important;
+    background-color: $col_facebook !important;
 }
 
 .twitter {
-  background-color: #1DA1F2 !important;
+    background-color: $col_twitter !important;
 }
 
 .linkedin {
-  background-color: #0077B5 !important;
+    background-color: $col_linkedin !important;
 }
 
 .gplus {
-  background-color: #DC4E41 !important;
+    background-color: $col_gplus !important;
 }
 
 .mail {
-  background-color: green !important;
-}
-
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
+    background-color: $col_mail !important;
 }
 
 .clearfix:after {
-  content: ".";
-  visibility: hidden;
-  display: block;
-  height: 0;
-  clear: both;
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
 }

@@ -22,10 +22,10 @@
 	<br>
 	<div class='container'>
 
-		<div class="row center-align">
+		<div class="row center-align" id="title">
 			<a href='{{ SITEURL }}'>
-				<h2 class='black-text center'>{{ SITENAME }}</h2>
-				<h4 class='black-text center'>{{ SITESUBTITLE }}</h4>
+				<h1 class='black-text center white-text'>{{ SITENAME }}</h1>
+				<h4 class='black-text center white-text'>{{ SITESUBTITLE }}</h4>
 			</a>
 		</div>
 
@@ -37,18 +37,17 @@
 			</div>
 			<div class='col s12 m4'>
 				<div class="row">
-					<p class="center-align">{{ HOME_TEXT }}</p>
-				</div>
-				<div class="row">
 					{% for fa,title, url in LINKS %}
 					<a href="{{url}}" class="black-action col s4">
 						<i class="fa fa-{{fa}}" aria-hidden="true"></i> {{title}}
 					</a>
 					{% endfor%}
-
 				</div>
 				<br>
 				<div class="row">
+					<p class="center-align">{{ HOME_TEXT }}</p>
+				</div>
+				<div class="row page-social">
 					{% for fa, url in SOCIAL %}
 					<a class="black-action col s3" href="{{ url }}">
 						<i class="fa fa-{{fa}} fa-3x" aria-hidden="true"></i>

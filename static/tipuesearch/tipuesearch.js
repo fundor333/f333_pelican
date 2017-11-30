@@ -290,11 +290,11 @@ http://www.tipue.com/search
 	    }
 	    if (c == 1) {
 
-	      out += '<div class="amber lighten-5 black-text container center">' + tipuesearch_string_4;
+	      out += '<div class="container center">' + tipuesearch_string_4;
 	    }
 	    else {
 	      c_c = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	      out += '<div class="amber lighten-5 black-text container center">' + c_c + ' ' + tipuesearch_string_5;
+	      out += '<div class="container center">' + c_c + ' ' + tipuesearch_string_5;
 	    }
 	    if (set.showTime) {
 	      var endTimer = new Date().getTime();
@@ -311,7 +311,7 @@ http://www.tipue.com/search
 	    var l_o = 0;
 	    for (var i = 0; i < found.length; i++) {
 	      if (l_o >= start && l_o < set.show + start) {
-		out += '<div class="row"><div class="card grey lighten-2"><div class="card-content">';
+		out += '<div class="row"><div class="page-result"><div class="card-content">';
 		out += '<div class="card-title"><a href="' + found[i].url + '"' + tipue_search_w + ' class="title-action" rel="bookmark">' + found[i].title + '</a></div>';
 
 		if (set.debug) {
@@ -377,7 +377,7 @@ http://www.tipue.com/search
 		  if (s_u.indexOf('http://') == 0) {
 		    s_u = s_u.slice(7);
 		  }
-		  out += '<div class="card-action gray-action"><a href="' + found[i].url + '"' + tipue_search_w + '>READ MORE</a></div>';
+		  out += '<div class="card-action page-result"><a href="' + found[i].url + '"' + tipue_search_w + '>READ MORE</a></div>';
 		}
 
 
@@ -419,7 +419,7 @@ http://www.tipue.com/search
 	    if (c > set.show) {
 	      var pages = Math.ceil(c / set.show);
 	      var page = (start / set.show);
-	      out += '<nav class="amber lighten-5 black-text center"><div class="container"><ul id="tipue_search_foot_boxes">';
+	      out += '<nav class="center"><div class="container"><ul id="tipue_search_foot_boxes">';
 
 	      if (start > 0) {
 		out += '<li role="navigation"><a class="tipue_search_foot_box" accesskey="b" id="' + (start - set.show) + '_' + replace + '">' + tipuesearch_string_6 + '</a></li>';

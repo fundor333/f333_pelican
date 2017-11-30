@@ -21,23 +21,21 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="col s10 offset-s1">
-			<div class="col s12">
-				{% include 'partial/top_head.html' %}
-				<div class="row">
-					{% include 'partial/navbar.html' %}
-				</div>
-				<div class="row">
-
-					{% block main_body %} {% endblock %} {% include 'partial/aside.html' %}
-
-
-				</div>
-				<br> {% include 'partial/footer.html' %}
+	<div class="col container">
+		<div class="col s12">
+			{% include 'partial/top_head.html' %}
+			<div class="row">
+				{% include 'partial/navbar.html' %}
 			</div>
+			<div class="row">
 
+				{% block main_body %} {% endblock %} {% include 'partial/aside.html' %}
+
+
+			</div>
+			<br> {% include 'partial/footer.html' %}
 		</div>
+
 	</div>
 	{% include 'partial/script.html' %}
 </body>
