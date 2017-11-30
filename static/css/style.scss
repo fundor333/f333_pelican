@@ -29,7 +29,6 @@ body {
 }
 
 .page-aside {}
-.page-article {}
 
 .page-navbar ,.page-footer {
 	background-color: $f333_gray;
@@ -66,11 +65,14 @@ body {
 }
 
 .page-article {
-    @for $i from 1 through 6 {
-        h#{$i} {
-            font-size: #{120% -(30*$i)};
-        }
-    }
+
+	color: $f333_gray;
+
+	@for $i from 1 through 6 {
+		h#{$i} {
+		    color: $f333_white;
+		}
+	    }
 }
 
 .page-title {}
