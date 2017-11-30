@@ -28,22 +28,26 @@
 				<h4 class='black-text center white-text'>{{ SITESUBTITLE }}</h4>
 			</a>
 		</div>
-
+		<div>
+			<a href='{{ SITEURL }}' class="col s12 hide-on-med-and-up">
+				<img src='{{ SITEURL }}/theme/img/pilogo.jpg' class='circle responsive-img'>
+			</a>
+		</div>
+		<div class="row">
+				{% for fa,title, url in LINKS %}
+				<a href="{{url}}" class="black-action col s4">
+					<i class="fa fa-{{fa}}" aria-hidden="true"></i> {{title}}
+				</a>
+				{% endfor%}
+			</div>
+			<br>
 		<div class="row valign-wrapper">
-			<div class='col s12 offset-m1 m5'>
+			<div class='col hide-on-small-only  offset-m1 m5'>
 				<a href='{{ SITEURL }}'>
 					<img src='{{ SITEURL }}/theme/img/pilogo.jpg' class='circle responsive-img'>
 				</a>
 			</div>
 			<div class='col s12 m4'>
-				<div class="row">
-					{% for fa,title, url in LINKS %}
-					<a href="{{url}}" class="black-action col s4">
-						<i class="fa fa-{{fa}}" aria-hidden="true"></i> {{title}}
-					</a>
-					{% endfor%}
-				</div>
-				<br>
 				<div class="row">
 					<p class="center-align">{{ HOME_TEXT }}</p>
 				</div>
