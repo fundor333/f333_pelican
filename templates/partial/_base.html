@@ -30,12 +30,14 @@
   <div class="col s12">
     {% include 'partial/top_head.html' %}
     <div class="row">
-      {% include 'partial/navbar.html' %}
+      {% include 'partial/aside.html' %}
     </div>
     <div class="row">
+      {% include 'partial/navbar.html' %}
+    </div>
 
-      {% block main_body %} {% endblock %} {% include 'partial/aside.html' %}
-
+    <div class="row">
+      {% block main_body %} {% endblock %}
 
     </div>
     <br> {% include 'partial/footer.html' %}

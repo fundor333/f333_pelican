@@ -1,29 +1,23 @@
 {% extends 'partial/_base.html' %} {% block main_body %}
 
-<div class="page-body col m9 s12 f333">
+<div class="page-body col s12 f333">
   <div class="col s12">
     <section>
       <div class="col s12">
 	<div class="row">
-	  {% block category_header %} {% endblock %}
+	  <h1>{% block category_header %} {% endblock %}</h1>
 	</div>
-	<ul class="collapsible popout" data-collapsible="accordion">
+	<hr>
+	{% for article in articles_page.object_list %}
 
-	  {% for article in articles_page.object_list %}
-	  <li>
-	    <div class="collapsible-header page-list">
-	      <i class="fa fa-link" aria-hidden="true"></i>
-	      {{ article.title | striptags }}
-	    </div>
-	    <div class="collapsible-body">
-								<span>
-									<p>{{ article.summary }}</p>
-									<a href="{{ SITEURL }}/{{ article.url }}">Read more</a>
-								</span>
-	    </div>
-	  </li>
-	  {% endfor %}
-	</ul>
+	<div>
+	  <h1 class="center">{{ article.title | striptags }}</h1>
+	  <p>{{ article.summary }}</p>
+	  <a href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+	  <hr>
+	</div>
+
+	{% endfor %}
 	<div class="row">
 	  <ul class="pagination">
 	    {% if articles_page.has_previous() %}
