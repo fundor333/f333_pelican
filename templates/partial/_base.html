@@ -2,42 +2,47 @@
 <html lang="it">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-	<link rel="icon" href="{{ SITEURL }}/theme/img/favicon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" href=" {{ SITEURL }}/theme/img/favicon.ico" type="image/x-icon" />
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+  <link rel="icon" href="{{ SITEURL }}/theme/img/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href=" {{ SITEURL }}/theme/img/favicon.ico" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css"/>
 
-	<link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font/build/web/hack.css'>
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font/build/web/hack.css'>
 
-	<meta name="description" content="">
-	<meta name="author" content="{{ AUTHOR }}"> {% if FEED_ATOM %}
-	<link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed"
-	/> {% endif %} {% if FEED_RSS %}
-	<link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed"
-	/> {% endif %}
+  <meta name="description" content="">
+  <meta name="author" content="{{ AUTHOR }}">
+  {% if FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate"
+	title="{{ SITENAME }} Atom Feed"
+  />
+  {% endif %} {% if FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate"
+	title="{{ SITENAME }} RSS Feed"
+  />
+  {% endif %}
 </head>
 
 <body>
-	<div class="col container">
-		<div class="col s12">
-			{% include 'partial/top_head.html' %}
-			<div class="row">
-				{% include 'partial/navbar.html' %}
-			</div>
-			<div class="row">
+<div class="col container">
+  <div class="col s12">
+    {% include 'partial/top_head.html' %}
+    <div class="row">
+      {% include 'partial/navbar.html' %}
+    </div>
+    <div class="row">
 
-				{% block main_body %} {% endblock %} {% include 'partial/aside.html' %}
+      {% block main_body %} {% endblock %} {% include 'partial/aside.html' %}
 
 
-			</div>
-			<br> {% include 'partial/footer.html' %}
-		</div>
+    </div>
+    <br> {% include 'partial/footer.html' %}
+  </div>
 
-	</div>
-	{% include 'partial/script.html' %}
+</div>
+{% include 'partial/script.html' %}
 </body>
 
 </html>

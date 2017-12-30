@@ -68,7 +68,7 @@
     calendar.item = {}
 
     calendar.item.clear = null
-    calendar.item.disable = ( settings.disable || [] ).slice(0)
+    calendar.item.disable = (settings.disable || []).slice(0)
     calendar.item.enable = -(function (collectionDisabled) {
       return collectionDisabled[0] === true ? collectionDisabled.shift() : -1
     })(calendar.item.disable)
@@ -158,7 +158,7 @@
     // Update this as the time unit, and set the final value as this item.
     // * In the case of `enable`, keep the queue but set `disable` instead.
     //   And in the case of `flip`, keep the queue but set `enable` instead.
-    calendarItem[( type == 'enable' ? 'disable' : type == 'flip' ? 'enable' : type )] = calendar.queue[type].split(' ').map(function (method) {
+    calendarItem[(type == 'enable' ? 'disable' : type == 'flip' ? 'enable' : type)] = calendar.queue[type].split(' ').map(function (method) {
       value = calendar[method](type, value, options)
       return value
     }).pop()
@@ -353,7 +353,7 @@
       }
 
       // Figure out the expected target year and month.
-      targetDateObject = new Date(targetYear, targetMonth + ( options && options.nav ? options.nav : 0 ), 1)
+      targetDateObject = new Date(targetYear, targetMonth + (options && options.nav ? options.nav : 0), 1)
       targetYear = targetDateObject.getFullYear()
       targetMonth = targetDateObject.getMonth()
 
@@ -472,15 +472,15 @@
     // • Inverted and all dates disabled.
     // • ..and anything else.
     if (!options || !options.nav) if (
-      /* 1 */ ( !isFlippedBase && calendar.disabled(dateObject) ) ||
-    /* 2 */ ( isFlippedBase && calendar.disabled(dateObject) && ( hasEnabledWeekdays || hasEnabledBeforeTarget || hasEnabledAfterTarget ) ) ||
-    /* 3 */ ( !isFlippedBase && (dateObject.pick <= minLimitObject.pick || dateObject.pick >= maxLimitObject.pick) )
+      /* 1 */ (!isFlippedBase && calendar.disabled(dateObject)) ||
+    /* 2 */ (isFlippedBase && calendar.disabled(dateObject) && (hasEnabledWeekdays || hasEnabledBeforeTarget || hasEnabledAfterTarget)) ||
+    /* 3 */ (!isFlippedBase && (dateObject.pick <= minLimitObject.pick || dateObject.pick >= maxLimitObject.pick))
     ) {
 
 
       // When inverted, flip the direction if there aren’t any enabled weekdays
       // and there are no enabled dates in the direction of the interval.
-      if (isFlippedBase && !hasEnabledWeekdays && ( ( !hasEnabledAfterTarget && interval > 0 ) || ( !hasEnabledBeforeTarget && interval < 0 ) )) {
+      if (isFlippedBase && !hasEnabledWeekdays && ((!hasEnabledAfterTarget && interval > 0) || (!hasEnabledBeforeTarget && interval < 0))) {
 	interval *= -1
       }
 
@@ -495,7 +495,7 @@
 
 
 	// If we’ve looped into the next/prev month with a large interval, return to the original date and flatten the interval.
-	if (Math.abs(interval) > 1 && ( dateObject.month < originalDateObject.month || dateObject.month > originalDateObject.month )) {
+	if (Math.abs(interval) > 1 && (dateObject.month < originalDateObject.month || dateObject.month > originalDateObject.month)) {
 	  dateObject = originalDateObject
 	  interval = interval > 0 ? 1 : -1
 	}
@@ -553,7 +553,7 @@
 
 	// If the date is a number, match the weekday with 0index and `firstDay` check.
 	if (_.isInteger(dateToDisable)) {
-	  return dateToVerify.day === ( calendar.settings.firstDay ? dateToDisable : dateToDisable - 1 ) % 7
+	  return dateToVerify.day === (calendar.settings.firstDay ? dateToDisable : dateToDisable - 1) % 7
 	}
 
 	// If it’s an array or a native JS date, create and match the exact date.
@@ -596,7 +596,7 @@
     }
 
     // We need a `.format` to parse the value with.
-    if (!( options && options.format )) {
+    if (!(options && options.format)) {
       options = options || {}
       options.format = calendar.settings.format
     }
@@ -625,7 +625,7 @@
     // Compensate for month 0index.
     return [
       parsingObject.yyyy || parsingObject.yy,
-      +( parsingObject.mm || parsingObject.m ) - 1,
+      +(parsingObject.mm || parsingObject.m) - 1,
       parsingObject.dd || parsingObject.d
     ]
   } //DatePicker.prototype.parse
@@ -714,7 +714,7 @@
 
 	// If there's a string, then the length is always 2.
 	// Otherwise return the selected year by slicing out the first 2 digits.
-	return string ? 2 : ( '' + dateObject.year ).slice(2)
+	return string ? 2 : ('' + dateObject.year).slice(2)
       },
       yyyy: function (string, dateObject) {
 
@@ -748,16 +748,16 @@
 
     // When we’re working with weekdays, do a direct comparison.
     if (
-      ( _.isInteger(one) && _.isInteger(two) ) ||
-      ( typeof one == 'boolean' && typeof two == 'boolean' )
+      (_.isInteger(one) && _.isInteger(two)) ||
+      (typeof one == 'boolean' && typeof two == 'boolean')
     ) {
       return one === two
     }
 
     // When we’re working with date representations, compare the “pick” value.
     if (
-      ( _.isDate(one) || $.isArray(one) ) &&
-      ( _.isDate(two) || $.isArray(two) )
+      (_.isDate(one) || $.isArray(one)) &&
+      (_.isDate(two) || $.isArray(two))
     ) {
       return calendar.create(one).pick === calendar.create(two).pick
     }
@@ -780,11 +780,11 @@
       firstDay = calendar.settings.firstDay ? 1 : 0
 
     // When we’re working with a weekday index, compare the days.
-    if (_.isInteger(one) && ( _.isDate(two) || $.isArray(two) )) {
+    if (_.isInteger(one) && (_.isDate(two) || $.isArray(two))) {
       one = one % 7 + firstDay
       return one === calendar.create(two).day + 1
     }
-    if (_.isInteger(two) && ( _.isDate(one) || $.isArray(one) )) {
+    if (_.isInteger(two) && (_.isDate(one) || $.isArray(one))) {
       two = two % 7 + firstDay
       return two === calendar.create(one).day + 1
     }
@@ -853,7 +853,7 @@
 	    _.isInteger(unitToDisable) ||
 	    _.isDate(unitToDisable) ||
 	    $.isArray(unitToDisable) ||
-	    ( $.isPlainObject(unitToDisable) && unitToDisable.from && unitToDisable.to )
+	    ($.isPlainObject(unitToDisable) && unitToDisable.from && unitToDisable.to)
 	  ) {
 	    disabledItems.push(unitToDisable)
 	  }
@@ -1010,7 +1010,7 @@
 	) //endreturn
 
 	// Materialize modified
-      })(( settings.showWeekdaysFull ? settings.weekdaysFull : settings.weekdaysLetter ).slice(0), settings.weekdaysFull.slice(0)), //tableHead
+      })((settings.showWeekdaysFull ? settings.weekdaysFull : settings.weekdaysLetter).slice(0), settings.weekdaysFull.slice(0)), //tableHead
 
 
       // Create the nav for next/prev month.
@@ -1020,19 +1020,19 @@
 	return _.node(
 	  'div',
 	  ' ',
-	  settings.klass['nav' + ( next ? 'Next' : 'Prev' )] + (
+	  settings.klass['nav' + (next ? 'Next' : 'Prev')] + (
 
 	    // If the focused month is outside the range, disabled the button.
-	    ( next && viewsetObject.year >= maxLimitObject.year && viewsetObject.month >= maxLimitObject.month ) ||
-	    ( !next && viewsetObject.year <= minLimitObject.year && viewsetObject.month <= minLimitObject.month ) ?
+	    (next && viewsetObject.year >= maxLimitObject.year && viewsetObject.month >= maxLimitObject.month) ||
+	    (!next && viewsetObject.year <= minLimitObject.year && viewsetObject.month <= minLimitObject.month) ?
 	      ' ' + settings.klass.navDisabled : ''
 	  ),
-	  'data-nav=' + ( next || -1 ) + ' ' +
+	  'data-nav=' + (next || -1) + ' ' +
 	  _.ariaAttr({
 	    role: 'button',
 	    controls: calendar.$node[0].id + '_table'
 	  }) + ' ' +
-	  'title="' + (next ? settings.labelMonthNext : settings.labelMonthPrev ) + '"'
+	  'title="' + (next ? settings.labelMonthNext : settings.labelMonthPrev) + '"'
 	) //endreturn
       }, //createMonthNav
 
@@ -1066,11 +1066,11 @@
 
 		  // Set the value and selected index.
 		  'value=' + loopedMonth +
-		  ( viewsetObject.month == loopedMonth ? ' selected' : '' ) +
+		  (viewsetObject.month == loopedMonth ? ' selected' : '') +
 		  (
 		    (
-		      ( viewsetObject.year == minLimitObject.year && loopedMonth < minLimitObject.month ) ||
-		      ( viewsetObject.year == maxLimitObject.year && loopedMonth > maxLimitObject.month )
+		      (viewsetObject.year == minLimitObject.year && loopedMonth < minLimitObject.month) ||
+		      (viewsetObject.year == maxLimitObject.year && loopedMonth > maxLimitObject.month)
 		    ) ?
 		      ' disabled' : ''
 		  )
@@ -1078,7 +1078,7 @@
 	      }
 	    }),
 	    settings.klass.selectMonth + ' browser-default',
-	    ( isOpen ? '' : 'disabled' ) + ' ' +
+	    (isOpen ? '' : 'disabled') + ' ' +
 	    _.ariaAttr({controls: calendar.$node[0].id + '_table'}) + ' ' +
 	    'title="' + settings.labelMonthSelect + '"'
 	  )
@@ -1103,7 +1103,7 @@
 
 	  // If years selector is set to a literal "true", set it to 5. Otherwise
 	  // divide in half to get half before and half after focused year.
-	  numberYears = settings.selectYears === true ? 5 : ~~( settings.selectYears / 2 )
+	  numberYears = settings.selectYears === true ? 5 : ~~(settings.selectYears / 2)
 
 	// If there are years to select, add a dropdown menu.
 	if (numberYears) {
@@ -1147,12 +1147,12 @@
 		    loopedYear, 0,
 
 		    // Set the value and selected index.
-		    'value=' + loopedYear + ( focusedYear == loopedYear ? ' selected' : '' )
+		    'value=' + loopedYear + (focusedYear == loopedYear ? ' selected' : '')
 		  ]
 		}
 	      }),
 	      settings.klass.selectYear + ' browser-default',
-	      ( isOpen ? '' : 'disabled' ) + ' ' + _.ariaAttr({controls: calendar.$node[0].id + '_table'}) + ' ' +
+	      (isOpen ? '' : 'disabled') + ' ' + _.ariaAttr({controls: calendar.$node[0].id + '_table'}) + ' ' +
 	      'title="' + settings.labelYearSelect + '"'
 	    )
 	  }
@@ -1217,7 +1217,7 @@
       // Calendar container
       _.node('div',
 	_.node('div',
-	  ( settings.selectYears ? createMonthLabel() + createYearLabel() : createMonthLabel() + createYearLabel() ) +
+	  (settings.selectYears ? createMonthLabel() + createYearLabel() : createMonthLabel() + createYearLabel()) +
 	  createMonthNav() + createMonthNav(1),
 	  settings.klass.header
 	) + _.node(
@@ -1246,7 +1246,7 @@
 		  item: function (targetDate) {
 
 		    // Convert the time date from a relative date to a target date.
-		    targetDate = calendar.create([viewsetObject.year, viewsetObject.month, targetDate + ( settings.firstDay ? 1 : 0 )])
+		    targetDate = calendar.create([viewsetObject.year, viewsetObject.month, targetDate + (settings.firstDay ? 1 : 0)])
 
 		    var isSelected = selectedObject && selectedObject.pick == targetDate.pick,
 		      isHighlighted = highlightedObject && highlightedObject.pick == targetDate.pick,
@@ -1317,15 +1317,15 @@
 	'div',
 	_.node('button', settings.today, "btn-flat picker__today",
 	  'type=button data-pick=' + nowObject.pick +
-	  ( isOpen && !calendar.disabled(nowObject) ? '' : ' disabled' ) + ' ' +
+	  (isOpen && !calendar.disabled(nowObject) ? '' : ' disabled') + ' ' +
 	  _.ariaAttr({controls: calendar.$node[0].id})) +
 	_.node('button', settings.clear, "btn-flat picker__clear",
 	  'type=button data-clear=1' +
-	  ( isOpen ? '' : ' disabled' ) + ' ' +
+	  (isOpen ? '' : ' disabled') + ' ' +
 	  _.ariaAttr({controls: calendar.$node[0].id})) +
 	_.node('button', settings.close, "btn-flat picker__close",
 	  'type=button data-close=true ' +
-	  ( isOpen ? '' : ' disabled' ) + ' ' +
+	  (isOpen ? '' : ' disabled') + ' ' +
 	  _.ariaAttr({controls: calendar.$node[0].id})),
 	settings.klass.footer
       ) //endreturn

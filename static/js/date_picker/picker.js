@@ -285,7 +285,7 @@
 
 
 	      // Check if there is a key movement or “enter” keypress on the element.
-	      else if (target == P.$root[0] && ( keycodeToMove || keycode == 13 )) {
+	      else if (target == P.$root[0] && (keycodeToMove || keycode == 13)) {
 
 		// Prevent the default action to stop page movement.
 		event.preventDefault()
@@ -672,7 +672,7 @@
 	  // * For IE, non-focusable elements can be active elements as well
 	  //   (http://stackoverflow.com/a/2684561).
 	  activeElement = getActiveElement()
-	activeElement = activeElement && ( activeElement.type || activeElement.href )
+	activeElement = activeElement && (activeElement.type || activeElement.href)
 
 	// If it’s disabled or nothing inside is actively focused, re-focus the element.
 	if (targetDisabled || activeElement && !$.contains(P.$root[0], activeElement)) {
@@ -962,7 +962,7 @@
      * Lead numbers below 10 with a zero.
      */
     lead: function (number) {
-      return ( number < 10 ? '0' : '' ) + number
+      return (number < 10 ? '0' : '') + number
     },
 
 
@@ -978,7 +978,7 @@
      * If the second character is a digit, length is 2 otherwise 1.
      */
     digits: function (string) {
-      return ( /\d/ ).test(string[1]) ? 2 : 1
+      return (/\d/).test(string[1]) ? 2 : 1
     },
 
 
