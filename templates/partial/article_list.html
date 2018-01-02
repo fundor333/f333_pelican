@@ -12,13 +12,13 @@
 	  {% for article in articles_page.object_list %}
 	  <div class="col s12 m4">
 	    <div class="article-box">
-	    <div class="article-preview-container">
-	      <div class="article-preview">
-		<p class="center article-title">{{ article.title | striptags }}</p>
-		<p>{{ article.summary }}</p>
-		<a class="center" href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+	      <div class="article-preview-container">
+		<div class="article-preview">
+		  <p class="center article-title">{{ article.title | striptags }}</p>
+		  <p>{{ article.summary }}</p>
+		  <a class="center" href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+		</div>
 	      </div>
-	    </div>
 	    </div>
 	  </div>
 	  {% endfor %}

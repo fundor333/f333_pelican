@@ -32,11 +32,12 @@
     $(".button-collapse").sideNav();
 
     $('#tipue_search_input').tipuesearch({
-      'show': 10,
+      'show': 12,
       'mode': 'json',
       'newWindow': true,
       'contentLocation': '{{ SITEURL }}/tipuesearch_content.json'
     });
+
     var divs = $(".contents");
     for (var i = 0; i < divs.length; i += 4) {
       j = i + 1;
@@ -44,7 +45,7 @@
     }
   });
 
-  $(document).ready(function() {
-	$('.article-preview').matchHeight();
-});
+  $(document).ready(function () {
+    $('.article-preview').matchHeight();
+  });
 </script>
