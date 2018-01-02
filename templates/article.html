@@ -23,23 +23,24 @@
 
 
     <br>
-    <div class="entry-content clearfix">
-      {{ article.content }}
-    </div>
-    <div>
-      <hr>
-      <div class="pure-g post-footer">
-	<p>
-	  Postato da {{ article.author }}
-	</p>
+    <div class="article-view">
+      <div class="entry-content clearfix">
+	{{ article.content }}
       </div>
+      <div>
+	<div class="pure-g post-footer">
+	  <p>
+	    Postato da {{ article.author }}
+	  </p>
+	</div>
 
-      <div class="card-action">
-	{% for tag in article.tags %}
-	<a class="gray-action" href="{{ tag.url }}">
-	  <i class="fa fa-tag" aria-hidden="true"></i> {{ tag.name }}
-	</a>
-	{% endfor %}
+	<div class="card-action">
+	  {% for tag in article.tags %}
+	  <a class="gray-action" href="{{ tag.url }}">
+	    <i class="fa fa-tag" aria-hidden="true"></i> {{ tag.name }}
+	  </a>
+	  {% endfor %}
+	</div>
       </div>
     </div>
   </div>

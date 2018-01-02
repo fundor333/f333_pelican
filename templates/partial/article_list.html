@@ -7,17 +7,23 @@
 	<div class="row">
 	  <h1>{% block category_header %} {% endblock %}</h1>
 	</div>
-	<hr>
-	{% for article in articles_page.object_list %}
 
-	<div>
-	  <h1 class="center">{{ article.title | striptags }}</h1>
-	  <p>{{ article.summary }}</p>
-	  <a href="{{ SITEURL }}/{{ article.url }}">Read more</a>
-	  <hr>
+	<div class="row article-list">
+	  {% for article in articles_page.object_list %}
+	  <div class="col s12 m4">
+	    <div class="article-box">
+	    <div class="article-preview-container">
+	      <div class="article-preview">
+		<p class="center article-title">{{ article.title | striptags }}</p>
+		<p>{{ article.summary }}</p>
+		<a class="center" href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+	      </div>
+	    </div>
+	    </div>
+	  </div>
+	  {% endfor %}
 	</div>
 
-	{% endfor %}
 	<div class="row">
 	  <ul class="pagination">
 	    {% if articles_page.has_previous() %}
