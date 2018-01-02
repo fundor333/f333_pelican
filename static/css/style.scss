@@ -1,8 +1,9 @@
 @import "../sass/materialize";
 @import "../scss/font-awesome";
-@import "pygment";
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
+@import "_pygment";
 @import "_colors";
+@import "_switch";
 
 $font_titles: 'Roboto';
 $font_text: 'Roboto';
@@ -48,12 +49,42 @@ body {
 
 .page-social {
   a {
-    color: $f333_orange;
+    color: $col_social;
   }
 }
 
 .social-icon {
   margin-bottom: 10px;
+  color: $col_social;
+}
+
+.article-title {
+  color: $col_social;
+  font-size: 120%;
+}
+
+.article-preview-container {
+  padding-top: 13px;
+  border-right: 4px solid $f333_gray;
+  border-bottom: 4px solid $f333_gray;
+  border-radius: 25px;
+  margin: 4px;
+}
+
+.article-preview {
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-bottom: 25px;
+}
+
+.article-box{
+  padding: 25px;
+}
+
+.article-list {
+}
+
+.article-view {
 }
 
 .page-breadcrumb {
