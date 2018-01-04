@@ -130,6 +130,12 @@ $color in $colors {
   }
 }
 
+.center-img{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
 .title-action {
   color: $f333_black !important;
 }
