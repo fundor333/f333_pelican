@@ -24,7 +24,7 @@
 
     <br>
     <div class="article-view">
-      <div class="entry-content clearfix">
+      <div class="clearfix">
 	{{ article.content }}
       </div>
       <div>
@@ -36,7 +36,7 @@
 
 	<div class="card-action">
 	  {% for tag in article.tags %}
-	  <a class="gray-action" href="{{ tag.url }}">
+	  <a class="gray-action" href="{{ SITEURL }}/{{ tag.url }}">
 	    <i class="fa fa-tag" aria-hidden="true"></i> {{ tag.name }}
 	  </a>
 	  {% endfor %}
